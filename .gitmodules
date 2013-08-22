@@ -1,3 +1,6 @@
 [submodule "Vim"]
 	path = Vim
 	url = git@github.com:muff1nman/Vim.git
+[submodule "git"]
+	path = git
+	url = git@github.com:muff1nman/gitconfigs.git
