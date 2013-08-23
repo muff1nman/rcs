@@ -6,6 +6,22 @@
 # All Rights Reserved.
 #
 
-# for each directory, run dir/link.sh dir
+DEFAULT_LINK_SCRIPT="link.sh"
 
+# for each directory, run dir/link.sh dir
+for D in *; do
+    if [ -d "${D}" ]; then
+        echo "searching for links to setup inside ${D}"
+				if [ -e "${D}/${DEFAULT_LINK_SCRIPT}" ]; then
+					echo "found linking script inside ${D}"
+					echo -n "Linking..."
+					`${D}/${DEFAULT_LINK_SCRIPT} ${D}`
+					if [[ "$?" == "0" ]]; then
+						echo "Sucessful!"
+					else
+						echo "Failed..."
+					fi
+				fi
+    fi
+done
 
