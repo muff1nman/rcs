@@ -1,0 +1,3 @@
+term screen-256color
+termcapinfo xterm* ti@:te@
+vbell off
