@@ -112,6 +112,20 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
 
+if os.getenv("AWESOME_LAPTOP") then
+	batterywidget = wibox.widget.textbox()    
+	batterywidget:set_text(" | Battery | ")    
+	batterywidgettimer = timer({ timeout = 5 })    
+	batterywidgettimer:connect_signal("timeout",    
+	function()    
+		fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))    
+		batterywidget:set_text(" |" .. fh:read("*l") .. " | ")    
+		fh:close()    
+	end    
+	)    
+	batterywidgettimer:start()
+end
+
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -190,6 +204,9 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(mytextclock)
+		if os.getenv("AWESOME_LAPTOP") then
+			right_layout:add(batterywidget)
+		end
     right_layout:add(mylayoutbox[s])
 
     -- Now bring it all together (with the tasklist in the middle)
