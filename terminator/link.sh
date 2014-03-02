@@ -12,7 +12,7 @@ then
         dir=`readlink -f "$1"`
         if [ ! -d ~/.config/terminator ];
         then
-                echo "Warning: creating terminator config directory.  Are you sure awesome is installed?"
+                echo "Warning: creating terminator config directory.  Are you sure terminator is installed?"
                 mkdir ~/.config/terminator
         fi
         ln -sf "$dir/config" ~/.config/terminator/config
