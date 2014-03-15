@@ -1,0 +1,17 @@
+[keybindings]
+decrease-main-split=['<Mod4><Shift>h']
+increase-main-split=['<Mod4><Shift>l']
+decrease-minor-split=['<Mod4><Shift>k']
+tile-current-window=['<Mod4>t']
+minimize-window=['<Mod4>mi']
+increase-main-size=['<Mod4>i']
+rotate-current-window=['<Mod4>l']
+adjust-splits-to-fit=['<Mod4><Shift>t']
+toggle-maximize=['<Mod4>m']
+focus-main-window=['<Mod4><Shift>space']
+increase-minor-split=['<Mod4><Shift>j']
+rotate-current-window-reverse=['<Mod4>h']
+decrease-main-size=['<Mod4>u']
+
+[prefs]
+default-layout='vertical'
