@@ -12,10 +12,10 @@ DEFAULT_LINK_SCRIPT="link.sh"
 for D in *; do
     if [ -d "${D}" ]; then
         echo "searching for links to setup inside ${D}"
-				if [ -e "${D}/${DEFAULT_LINK_SCRIPT}" ]; then
+				if [ -x "${D}/${DEFAULT_LINK_SCRIPT}" ]; then
 					echo "found linking script inside ${D}"
 					echo -n "Linking..."
-					`${D}/${DEFAULT_LINK_SCRIPT} ${D}`
+					${D}/${DEFAULT_LINK_SCRIPT} ${D}
 					if [[ "$?" == "0" ]]; then
 						echo "Sucessful!"
 					else
